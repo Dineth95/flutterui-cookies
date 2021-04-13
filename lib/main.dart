@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercookie/bottom_bar.dart';
-import 'package:fluttercookie/cookie_page.dart';
+import 'package:fluttercookie/feature/home/bottom_bar.dart';
+import 'package:fluttercookie/feature/home/cookie_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -36,10 +36,6 @@ class _MyHomePageState extends State<MyHomePage>
         backgroundColor: Colors.white,
         elevation: 0.0,
         centerTitle: true,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Color(0xFF545D68)),
-          onPressed: () {},
-        ),
         title: Text('Pickup',
             style: TextStyle(
                 fontFamily: 'Varela',

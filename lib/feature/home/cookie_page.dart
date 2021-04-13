@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercookie/cookie_detail.dart';
+import 'package:fluttercookie/feature/home/cookie_detail.dart';
 
 class CookiePage extends StatelessWidget {
   @override
@@ -42,12 +42,11 @@ class CookiePage extends StatelessWidget {
         padding: EdgeInsets.only(top: 5.0, bottom: 5.0, left: 5.0, right: 5.0),
         child: InkWell(
             onTap: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => CookieDetail(
-                    assetPath: imgPath,
-                    cookieprice:price,
-                    cookiename: name
-                  )));
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => CookieDetail(
+                      assetPath: imgPath,
+                      cookieprice: price,
+                      cookiename: name)));
             },
             child: Container(
                 decoration: BoxDecoration(
@@ -97,29 +96,28 @@ class CookiePage extends StatelessWidget {
                       padding: EdgeInsets.only(left: 5.0, right: 5.0),
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            if (!added) ...[
-                              Icon(Icons.shopping_basket,
-                                  color: Color(0xFFD17E50), size: 12.0),
-                              Text('Add to cart',
-                                  style: TextStyle(
-                                      fontFamily: 'Varela',
-                                      color: Color(0xFFD17E50),
-                                      fontSize: 12.0))
-                            ],
-                            if (added) ...[
-                              Icon(Icons.remove_circle_outline,
-                                  color: Color(0xFFD17E50), size: 12.0),
-                              Text('3',
-                                  style: TextStyle(
-                                      fontFamily: 'Varela',
-                                      color: Color(0xFFD17E50),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 12.0)),
-                              Icon(Icons.add_circle_outline,
-                                  color: Color(0xFFD17E50), size: 12.0),
-                            ]
-                          ]))
+                          children: !added
+                              ? [
+                                  Icon(Icons.shopping_basket,
+                                      color: Color(0xFFD17E50), size: 12.0),
+                                  Text('Add to cart',
+                                      style: TextStyle(
+                                          fontFamily: 'Varela',
+                                          color: Color(0xFFD17E50),
+                                          fontSize: 12.0))
+                                ]
+                              : [
+                                  Icon(Icons.remove_circle_outline,
+                                      color: Color(0xFFD17E50), size: 12.0),
+                                  Text('3',
+                                      style: TextStyle(
+                                          fontFamily: 'Varela',
+                                          color: Color(0xFFD17E50),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 12.0)),
+                                  Icon(Icons.add_circle_outline,
+                                      color: Color(0xFFD17E50), size: 12.0),
+                                ]))
                 ]))));
   }
 }

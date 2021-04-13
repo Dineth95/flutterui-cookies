@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercookie/bottom_bar.dart';
+import 'package:fluttercookie/feature/home/bottom_bar.dart';
 
 class CookieDetail extends StatelessWidget {
   final assetPath, cookieprice, cookiename;
