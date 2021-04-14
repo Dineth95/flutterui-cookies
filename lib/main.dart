@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttercookie/core/connectivity/connectivity_bloc.dart';
+import 'package:fluttercookie/feature/bloc/cookie_page_bloc.dart';
 import 'package:fluttercookie/feature/home/bottom_bar.dart';
 import 'package:fluttercookie/feature/home/cookie_page.dart';
 
@@ -17,9 +18,9 @@ class MyApp extends StatelessWidget {
             BlocProvider<ConnectivityBloc>(
               create: (BuildContext context) => ConnectivityBloc(),
             ),
-            // BlocProvider<BlocB>(
-            //   create: (BuildContext context) => BlocB(),
-            // ),
+            BlocProvider<CookiePageBloc>(
+              create: (BuildContext context) => CookiePageBloc(),
+            ),
           ],
           child: MyHomePage(),
         ));

@@ -9,10 +9,14 @@ class CookiePageInitialState extends CookiePageState {}
 
 class CookiePageLoadingState extends CookiePageState {}
 
-class CookiePageloadedState extends CookiePageState {}
+class CookiePageloadedState extends CookiePageState {
+  final List<Cookie> cookieList;
+  CookiePageloadedState({@required this.cookieList});
+
+  @override
+  List<Object> get props => [cookieList];
+}
 
 class CookiePageLoadingFailedState extends CookiePageState {}
 
 class InternetConnectionFailedState extends CookiePageState {}
-
-

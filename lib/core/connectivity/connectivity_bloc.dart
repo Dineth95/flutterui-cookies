@@ -14,7 +14,7 @@ class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
     connectivitySubscription =
         connectivity.onConnectivityChanged.listen((result) {
       if (result == ConnectivityResult.none) {
-        add(ConnectedConnectivityEvent());
+        add(DisconnectConnectivityEvent());
       } else {
         add(ConnectedConnectivityEvent());
       }
