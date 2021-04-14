@@ -44,7 +44,7 @@ class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
   Future<void> checkConnection({@required Connectivity connectivity}) async {
     ConnectivityResult result = await connectivity.checkConnectivity();
     if (result == ConnectivityResult.none) {
-      add(ConnectedConnectivityEvent());
+      add(DisconnectConnectivityEvent());
     } else {
       add(ConnectedConnectivityEvent());
     }

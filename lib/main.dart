@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
               create: (BuildContext context) => ConnectivityBloc(),
             ),
             BlocProvider<CookiePageBloc>(
-              create: (BuildContext context) => CookiePageBloc(),
+              create: (BuildContext context) => CookiePageBloc(
+                  connectivityBloc: context.read<ConnectivityBloc>()),
             ),
           ],
           child: MyHomePage(),

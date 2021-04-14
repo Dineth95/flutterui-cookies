@@ -37,6 +37,20 @@ class CookiePage extends StatelessWidget {
                 SizedBox(height: 15.0)
               ],
             );
+          } else if (state is InternetConnectionFailedState) {
+            print("---------No Internet-------");
+            return Center(
+              child: AlertDialog(
+                title: Text("No Intenet"),
+                content: Text("Please check your internet connection"),
+                actions: [
+                  FlatButton(
+                    child: Text("Ok"),
+                    onPressed: () {},
+                  )
+                ],
+              ),
+            );
           } else {
             return Center(
               child: Text("Failed to get data"),
