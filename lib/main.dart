@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttercookie/core/connectivity/connectivity_bloc.dart';
 import 'package:fluttercookie/feature/home/bottom_bar.dart';
 import 'package:fluttercookie/feature/home/cookie_page.dart';
 
@@ -8,9 +10,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
-    );
+        debugShowCheckedModeBanner: false,
+        //home: MyHomePage(),
+        home: MultiBlocProvider(
+          providers: [
+            BlocProvider<ConnectivityBloc>(
+              create: (BuildContext context) => ConnectivityBloc(),
+            ),
+            // BlocProvider<BlocB>(
+            //   create: (BuildContext context) => BlocB(),
+            // ),
+          ],
+          child: MyHomePage(),
+        ));
   }
 }
 
@@ -88,23 +100,20 @@ class _MyHomePageState extends State<MyHomePage>
                       )),
                 )
               ]),
-              Container(
-                height: MediaQuery.of(context).size.height - 50.0,
-                width: double.infinity,
-                child: TabBarView(
-                  controller: _tabController,
-                  children: [
-                    CookiePage(),
-                    CookiePage(),
-                    CookiePage(),
-                  ]
-                )
-              )
+          Container(
+              height: MediaQuery.of(context).size.height - 50.0,
+              width: double.infinity,
+              child: TabBarView(controller: _tabController, children: [
+                CookiePage(),
+                CookiePage(),
+                CookiePage(),
+              ]))
         ],
       ),
-      floatingActionButton: FloatingActionButton(onPressed: () {},
-      backgroundColor: Color(0xFFF17532),
-      child: Icon(Icons.fastfood),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Color(0xFFF17532),
+        child: Icon(Icons.fastfood),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomBar(),
